@@ -1,27 +1,26 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe 활성 파일 빌드",
-            "command": "C:\\mingw64\\bin\\g++.exe",
+            "type": "shell", // 'cppbuild'를 'shell'로 변경
+            "label": "C/C++: 외부 터미널에서 실행", // 작업 이름 수정
+            "command": "g++.exe", // g++ 실행 파일 경로를 환경 변수에 등록했다면 이렇게만 작성
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "&&", // 컴파일 성공 시 다음 명령어 실행
+                "start", "cmd", "/k", "${fileDirname}\\${fileBasenameNoExtension}.exe" // 외부 터미널에서 실행
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "problemMatcher": ["$gcc"],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "디버거에서 생성된 작업입니다."
+            "detail": "컴파일 후 외부 터미널에서 실행합니다."
         }
     ],
     "version": "2.0.0"

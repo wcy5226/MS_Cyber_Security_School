@@ -7,4 +7,9 @@ int main() {
 
     printf("Age : %d\n", age);
     printf("Score : %d\n", score);
+
+    printf("Press Enter to exit...");
+    getchar(); // 이전 입력 버퍼의 개행 문자 제거
+    getchar(); // 실제 Enter 입력 대기
+    return 0;
 }
