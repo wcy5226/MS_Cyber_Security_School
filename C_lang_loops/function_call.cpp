@@ -47,30 +47,24 @@ main 함수보다 뒤에 정의된 함수를 호출할 수 있습니다.
 #include <stdio.h>
 #include <conio.h>
 
-void checkcase(){
+void check_key(){
 
     char ch;
     printf("문자 하나를 입력하세요: ");
     ch = getche(); //키보드로부터 문자 하나를 입력받음
     //입력받은 key 값을 매개변수로 전달하고 대문자/소문자/숫자/특수문자 종류를 구분하여 출력
     printf("\n");
-    if(ch>='A'&&ch<='Z'){
-        printf("대문자입니다.\n");
-    } else if(ch>='a'&&ch<='z'){
-        printf("소문자입니다.\n");
-    } else if(ch>='0'&&ch<='9'){
-        printf("숫자입니다.\n");
-    } else if(ch>='!' && ch<='~'){
-        printf("특수문자입니다.\n");
-    } else {
-        printf("기타문자입니다.\n");
-    }
+    if(ch>='A'&&ch<='Z') printf("대문자입니다.\n");
+    else if(ch>='a'&&ch<='z') printf("소문자입니다.\n");
+    else if(ch>='0'&&ch<='9') printf("숫자입니다.\n");
+    else if(ch>='!' && ch<='~') printf("특수문자입니다.\n");
+    else printf("기타문자입니다.\n");
     printf("\n");
 }
 
 int main() {
     while (1)
     {
-        checkcase(); //함수 호출     
+        check_key(); //함수 호출     
     }
 }

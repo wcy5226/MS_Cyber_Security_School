@@ -1,27 +1,32 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "shell", // 'cppbuild'를 'shell'로 변경
-            "label": "C/C++: 외부 터미널에서 실행", // 작업 이름 수정
-            "command": "g++.exe", // g++ 실행 파일 경로를 환경 변수에 등록했다면 이렇게만 작성
+            "label": "C/C++: 외부 터미널에서 실행",
+            "type": "shell",
+            "command": "g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "&&", // 컴파일 성공 시 다음 명령어 실행
-                "start", "cmd", "/k", "${fileDirname}\\${fileBasenameNoExtension}.exe" // 외부 터미널에서 실행
+                "&&",
+                "start",
+                "cmd",
+                "/k",
+                "chcp 65001 && ${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": [
+                "$gcc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "detail": "컴파일 후 외부 터미널에서 실행합니다."
         }
-    ],
-    "version": "2.0.0"
+    ]
 }
